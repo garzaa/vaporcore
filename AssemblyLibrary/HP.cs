@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
-using Sirenix.OdinInspector;
 
 public class HP : MonoBehaviour, IHitListener {
 	public SubscriptableInt current;
@@ -10,7 +9,6 @@ public class HP : MonoBehaviour, IHitListener {
 	public UnityEvent OnZero;
 	
 	public bool renderHealthbar = true;
-	[ShowIf(nameof(renderHealthbar))]
 	public float verticalOffset = 0.8f;
 
 	void Awake() {
@@ -56,7 +54,7 @@ public class HP : MonoBehaviour, IHitListener {
 		max.Set(max.Get() + diff);
 	}
 
-	public void OnHit(AttackHitbox attack) {
+	public void OnHit(HitboxBase attack) {
 		AdjustCurrent(-attack.data.GetDamage());
 	}
 

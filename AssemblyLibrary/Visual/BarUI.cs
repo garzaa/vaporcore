@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using Sirenix.OdinInspector;
 
 public class BarUI : MonoBehaviour {
     public Image indicator;
@@ -11,7 +10,6 @@ public class BarUI : MonoBehaviour {
     public Image deltaIndicator;
     public float pixelsPerUnit;
 	public bool normalizeSize = false;
-	[ShowIf(nameof(normalizeSize))]
 	public float size = 64;
 	public bool disappearAfterDelta = false;
 	const float disappearDelay = 3f;

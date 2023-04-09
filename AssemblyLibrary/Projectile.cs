@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class Projectile : MonoBehaviour {
 	public GameObject impact;
 	public bool randomImpactRotation;
-	AttackHitbox attackHitbox;
+	HitboxBase attackHitbox;
 
 	Rigidbody2D rb2d;
 
@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour {
 
 	void Awake() {
 		rb2d = GetComponent<Rigidbody2D>();
-		attackHitbox = GetComponent<AttackHitbox>();
+		attackHitbox = GetComponent<HitboxBase>();
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour {
 					return;
 				}
 				// don't let enemy attacks block it
-				if (other.GetComponent<AttackHitbox>()) {
+				if (other.GetComponent<HitboxBase>()) {
 					return;
 				}
 			}
